@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Task Analyzer</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css"> 
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto">
+        <header class="text-center mb-8 border-b-2 pb-4">
+            <h1 class="text-4xl font-extrabold text-gray-900">Smart Task Analyzer</h1>
+            <p class="text-lg text-gray-600">Prioritize tasks intelligently based on Urgency, Importance, and Effort.</p>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-1 space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+                    <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+                        <i data-lucide="list-plus" class="w-6 h-6 mr-2 text-indigo-600"></i>
+                        Analysis Control
+                    </h2>
+
+                    <div class="mb-4">
+                        <label for="sortStrategy" class="block text-sm font-medium text-gray-700 mb-2">Sorting Strategy</label>
+                        <select id="sortStrategy" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                            <option value="smart">Smart Balance (Priority Algorithm)</option>
+                            <option value="fastest">Fastest Wins (Low Effort)</option>
+                            <option value="highimpact">High Impact (Importance)</option>
+                            <option value="deadline">Deadline Driven (Urgency)</option>
+                            <option value="suggest">Top 3 Suggestions (API)</option>
+                        </select>
+                    </div>
+
+                    <button id="analyzeBtn" class="w-full bg-indigo-600 text-white p-3 rounded-lg font-bold hover:bg-indigo-700 transition duration-150 shadow-md flex items-center justify-center" >
+                        <i data-lucide="zap" class="w-5 h-5 mr-2"></i>
+                        Analyze Tasks
+                    </button>
+
+                    <p id="loadingMessage" class="mt-3 text-center text-sm text-indigo-600 hidden">
+                        <i data-lucide="loader" class="w-4 h-4 inline-block animate-spin mr-1"></i>
+                        Analyzing...
+                    </p>
+                    <p id="errorMessage" class="mt-3 text-center text-sm text-red-500 hidden"></p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Bulk JSON Input</h3>
+                    <p class="text-sm text-gray-500 mb-3">Paste a JSON array of tasks below:</p>
+                    <textarea id="jsonInput" rows="10" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 text-sm font-mono" placeholder='[
+    {
+        "title": "Fix login bug",
+        "due_date": "2025-11-30",
+        "estimated_hours": 3,
+        "importance": 8,
+        "dependencies": "Task A, Task B"
+    },
+    {
+        "title": "Write unit tests",
+        "due_date": "2025-12-15",
+        "estimated_hours": 1,
+        "importance": 5,
+        "dependencies": ""
+    }
+]'></textarea>
+                </div>
+
+            </div>
+
+            <div class="lg:col-span-2 space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+                    <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+                        <i data-lucide="trending-up" class="w-6 h-6 mr-2 text-green-600"></i>
+                        Analysis Results
+                    </h2>
+                    <div id="resultsContainer" class="space-y-4">
+                        <p class="text-gray-500 italic" id="placeholderMsg">Enter or paste tasks and click 'Analyze Tasks' to see results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<script src="scripts.js"></script>
+</body>
+</html>

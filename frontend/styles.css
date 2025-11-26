@@ -1,0 +1,35 @@
+/* General styling improvements */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f7fafc;
+}
+
+/* Task Card Hover Effect for better UX */
+.task-card {
+    transition: all 0.3s ease;
+}
+.task-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+}
+
+/* Custom classes for color-coded priority indicators */
+/* High Priority (Red) */
+.priority-high-bg { background-color: #fef2f2; }
+.priority-high-border { border-color: #ef4444; }
+.priority-high-text { color: #b91c1c; }
+
+/* Medium Priority (Yellow) */
+.priority-medium-bg { background-color: #fffbeb; }
+.priority-medium-border { border-color: #f59e0b; }
+.priority-medium-text { color: #b45309; }
+
+/* Low Priority (Green) */
+.priority-low-bg { background-color: #ecfdf5; }
+.priority-low-border { border-color: #10b981; }
+.priority-low-text { color: #065f46; }
+
+/* Critical Priority (For past-due tasks, giving a strong visual flag) */
+.priority-critical-bg { background-color: #f87171; }
+.priority-critical-border { border-color: #dc2626; }
+.priority-critical-text { color: #ffffff; font-weight: bold; }
